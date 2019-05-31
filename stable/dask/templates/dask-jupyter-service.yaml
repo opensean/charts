@@ -10,6 +10,8 @@ metadata:
     release: {{ .Release.Name | quote }}
     chart: {{ template "dask.chart" . }}
     component: jupyter
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
 spec:
   ports:
     - port: {{ .Values.jupyter.servicePort }}
